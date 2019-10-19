@@ -1,0 +1,18 @@
+"""
+Publishes feedback info
+- jsonify feedback object
+- encode as bytestring
+- publish message
+- return result
+"""
+def publish_feedback(feedback):
+
+# TODO: Publish the feedback object to the feedback topic
+
+    payload = json.dumps(feedback, indent=2,
+                                      sort_keys=True)
+    data = payload.encode('utf-8')
+    future = publisher.publish(topic_path, data=data)
+    return future.result()
+
+# END TODO
